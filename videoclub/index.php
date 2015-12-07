@@ -1,65 +1,76 @@
 <?php
-//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //  CONTROLADORES
-//header( "location: app/pages/");
-require_once 'app/core.php';
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
+require_once 'app/modelo/core.php';
+/////////////////////////////////////////////////////////////////////////////
 //		COMPROBAMOS EL LOGIN
 session_start();
 if( isset($_COOKIE['recordar']) ){
 	if( isset($_COOKIE['datosUsuario']) ){
 		$datosUsuario = unserialize($_COOKIE["datosUsuario"]);	
 		$_SESSION['logged'] = $datosUsuario;
-	}	
-}
-if (isset($_SESSION['logged']['user'])){
-	// Página privada
-	$tituloPagina ="Bienvenido ".$_SESSION['logged']['user'].", este es tu videoclub.";
-	require_once('app/includes/header_user.php');
-	$logged = true;
-}else{
-	// Página publica
-	$tituloPagina ="Bienvenido al videoclub.";
-	require_once('app/includes/header.php');
-	$logged = false;
-}
-/////////////////////////////////////////////////////////////////////////////
-// enruta la petición internamente
-$ruta = $_SERVER['REQUEST_URI'];	// $ruta = /videoclub/index.php
-$ruta = substr($ruta, (strlen(PAGINA)-1)); 			// $ruta = /index.php
-
-/////////////////////////////////////////////////////////////////////////////
-//index.php    //////////////////////////////////////////////////////////////
-if ($ruta == '/index.php/'){header('location: '.PAGINA.'index.php');}
-if ($ruta == '/index.php' || $ruta == '/') {
-	// Comprovamos si se han logeado los usuarios.
-	if ($logged){
-		include('app/pages/principal_privada.php');
-	}else{
-		include('app/pages/principal_publica.php');
 	}
 }
+if (isset($_SESSION['logged']['user']))
+	{ $logged = true; }
+else
+	{ $logged = false; }
 /////////////////////////////////////////////////////////////////////////////
-// index.php/logout /////////////////////////////////////////////////////////
-elseif ($ruta == '/index.php/logout') {
-    echo $ruta;
-    include('app/pages/cerrar.php');
-} 
-elseif ($ruta == '/index.php/show' && isset($_GET['id'])) {
-    show_action($_GET['id']);
-} 
-else {
-    header('Status: 404 Not Found');
-    include('app/pages/error404.php');
+// 	FORMATEO ENRUTADO PAGINAS
+$ruta = $_SERVER['REQUEST_URI'];			// $ruta = /videoclub/index.php
+$ruta = substr($ruta, strlen(PAGINA)); 		// $ruta = index.php
+/////////////////////////////////////////////////////////////////////////////
+// 	ENRUTAMIENTO DE PETICIONES POR URL
+//  index.php  //////////////////////////////////////////////////////////////
+if ($ruta == 'index.php/'){header('location: '.PAGINA.'index.php');}
+if ($ruta == 'index.php' || $ruta == '/' || $ruta =="") {
+	// Comprovamos si se han logeado los usuarios.
+	if ($logged){
+		$tituloPagina ="Bienvenido ".strtoupper($_SESSION['logged']['user']).", este es tu videoclub.";
+		include('app/vista/principal_privada.php');
+	}else{
+		$tituloPagina ="Bienvenido, este es tu videoclub.";
+		include('app/vista/principal_publica.php');
+	}
 }
 
+/////////////////////////////////////////////////////////////////////////////
+// index.php/login //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+elseif ($ruta == 'index.php/login' || $ruta == 'index.php/login/') {
+	require 'app/controlador/login.php';
+}
 
+/////////////////////////////////////////////////////////////////////////////
+// index.php/peliculas //////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+elseif ($ruta == 'index.php/peliculas' || $ruta == 'index.php/peliculas/') {
+	require 'app/controlador/listadoPeliculas.php';
+}
 
-// Footer
-require_once('app/includes/footer.php');
-//		FIN DE GENERACION DE PAGINA
+/////////////////////////////////////////////////////////////////////////////
+// index.php/registro ///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+elseif ($ruta == 'index.php/registro' || $ruta == 'index.php/registro/') {
+	include('app/controlador/registro.php');
+}
 
+/////////////////////////////////////////////////////////////////////////////
+// index.php/logout /////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+elseif ($ruta == 'index.php/logout' || $ruta == 'index.php/logout/') {
+    include('app/controlador/cerrar.php');
+}
 
-echo $ruta;
+/////////////////////////////////////////////////////////////////////////////
+// ERROR 404 ////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+else {
+    header('Status: 404 Not Found');
+    $tituloPagina = "404 página no encontrada";
+    include('app/vista/error404.php');
+}
+// 	FIN DE ENRUTAMIENTO DE PETICIONES POR URL
+/////////////////////////////////////////////////////////////////////////////
+echo "<br><br>".$ruta;
 ?>

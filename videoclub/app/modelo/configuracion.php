@@ -8,6 +8,6 @@
 	define("PAGINA","/videoclub/");
 	///////////////////////////////////////////////
 	//	PARAMETROS DE LA BASE DE DATOS
-	define("PARAMETROS","host=127.0.0.1 dbname=test user=test password=test");
+	define("PARAMETROS","host=127.0.0.1 dbname=videoclub user=videoclub password=videoclub");
 	///////////////////////////////////////////////
 ?>

@@ -9,9 +9,12 @@ Colores de la pagina.
 
 	-final fondo: 1C44BC;
 */
-body { margin: 0; padding: 0; text-align: center; background: white}
+body { margin: 0; padding: 0; text-align: center; background: white; font-size: 11px; line-height: 18px; }
 
-* {margin: 0; padding: 0; border: 0; text-align: justify; font-family: Verdana, Arial, sans-serif; font-size: 11px; line-height: 18px; }
+* {margin: 0; padding: 0; border: 0; text-align: left; font-family: Verdana, Arial, sans-serif;}
+/*
+font-size: 11px; line-height: 18px; 
+*/
 
 #container {
 	margin: 0 auto; 
@@ -19,7 +22,7 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 	background: #E8F6FF;
 	border-left: 1px #5BC8FD solid;
 	border-radius: 4px;
-	
+
 	-moz-box-shadow: 0px 0px 30px #0174DF; 
     -webkit-box-shadow: 0px 0px 30px #0174DF; 
     box-shadow: 0px 0px 30px #0174DF;
@@ -54,13 +57,6 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 #izquierda {
 	float: left;
 	width: 200px;
-}
-
-.entrada{
-	border-radius: 10px;
-	background: #CEECF5;
-	border: solid 2px #A9E2F3;
-	margin-bottom: 10px;
 }
 
 #cuerpo {
@@ -130,7 +126,7 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 	letter-spacing: 0px 
 }
 
-#cuerpo h1,h2 {
+#container h1,h2 {
 	margin: 0px 10px 5px 25px; 
 	padding: 8px 0px 10px 0px;
 	font-family: Georgia, serif; 
@@ -174,7 +170,7 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 }
 	
 	
-.cajasIzq h1,h2,h3 {
+.cajasIzq h2 {
 	background: #0174DF;
 	font-family: Verdana, Arial, sans-serif;
 	margin: 0 10px 2px 10px;
@@ -274,12 +270,24 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 
 /*############### FIN MENU ###############################*/
 
-
+/* ## ENTRADAS ########################################## */
+.entrada{
+	border-radius: 10px;
+	background: #CEECF5;
+	border: solid 2px #A9E2F3;
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 10px #FFA200;
+}
 .titulo {
 	border-radius: 8px;
-	width: 570px;
+	width: 100%;
 	background: #0174DF;
 }
+.centrado{
+	padding: 5px 50px 10px 50px;
+}
+/* ## FIN ENTRADAS ###################################### */
+
 
 .cajasIzq {
 	border-radius: 10px;
@@ -289,6 +297,7 @@ body { margin: 0; padding: 0; text-align: center; background: white}
 	border: 1px solid #5BC8FD;
 	border-radius: 10px;
 	background: #5BC4FD;
+	box-shadow: 0px 0px 10px #FFA200;
 }
 	
 .cajasIzq p {
@@ -340,16 +349,7 @@ input {
 	padding: 5px;
 }
 
-.Error{
-	color: red;
-    border: 2px solid #F9B0B0;
-    border-radius: 6px;
-    padding: 25px 25px 25px 25px;
-    margin-top: 20px;
-	margin-bottom: 20px;
-    background-color: white;
-    box-shadow: 0px 5px 10px #FE6767, 0 0 0 8px #FCBEBE inset;
-}
+
 
 /* TABLAS HTML */
 table.imagetable {
@@ -382,16 +382,19 @@ table.imagetable td {
 	text-align: right;
 }
 #login input[type="text"]:hover, #login input[type="password"]:hover {
+	font-size: 11px; line-height: 18px;
 	border: 1px solid red;
 	padding: 4px;
 }
 #login input[type="text"], #login input[type="password"] {
+	font-size: 11px; line-height: 18px;
 	border-radius: 4px;
 	border: 1px solid #0174DF;
 	padding: 4px;
 	height: 8px;
 }
 #login input[type="submit"], input[type="button"]{
+	font-size: 11px; line-height: 18px;
 	padding: 0px 2px 1px 2px;
 	height: 20px;
 	border-radius: 5px;
@@ -400,9 +403,80 @@ table.imagetable td {
 	font-weight: bold;
 	background: #0174DF;
 }
+/*###############################*/
+/* login **/
+
+
+/* login **/
+/*###############################*/
+table,td, th { border: 1px solid black; }
+table { border-collapse: collapse; margin: auto; }
+td, th { height: 35px; }
+caption { font-family: Garamond; font-size: 1.5em; font-weight: bold; 
+          color: #990000;text-align: center; }
+th { font-family: Verdana; font-weight: bold; color:#660033; 
+     background-color: #ffffcc; }
+td { font-family: Arial; color:#0000cc;background-color: #ccffff; 
+     padding-left: 10px; padding-left: 10px; }
+.hueco { background-color: white;border-left-color: transparent;
+         border-top-color: transparent; } /* Se puede poner en th*/
 
 
 /* FIN FORMATO FORMULARIOS*/
+
+.infoRoja h1{
+	color: red;
+	font-size: 20px;
+}
+.infoVerde h1{
+	color: green;
+	font-size: 20px;
+}
+.infoRoja{
+	width: 450px;
+	display: block;
+	margin: auto;
+	color: black;
+	font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 10px 80px #FE6767, 0 0 0 15px #FCBEBE inset;
+}
+
+.infoVerde{
+	width: 450px;
+	display: block;
+	margin: auto;
+	color: black;
+	font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 10px 80px #01DF01, 0 0 0 15px #93FB93 inset;
+}
+.apagado{
+	background: #3F3C00;
+}
+
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.center{
+	text-align: center;
+}
+
 /*
 Colores de la pagina.
 	- fondo de colores: #5BC8FD;
@@ -414,3 +488,88 @@ Colores de la pagina.
 
 	-final fondo: 1C44BC;
 */
+
+/*
+###################################################################
+## FORMULARIOS HTML, ERRORES PHP class="errores"
+*/
+.formulario{
+	margin: 0px 10px 10px 10px;
+	border: 1px solid #CED5D7;
+	border-radius: 6px;
+	padding: 20px 0px 20px 45px;
+	background-color: white;
+	box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+}
+.formulario label{
+	display: inline-block;
+	width: 180px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding: 6px;
+	border-radius: 10px;
+	background:  #CEECF5;
+}
+.formulario div{
+	margin-bottom: 5px;
+}
+.formulario input[type='text'], .formulario input[type='password'], .formulario textarea,.formulario select{
+	border-radius: 8px;
+	padding: 7px 6px;
+	width: 250px;
+	border: 1px solid #CED5D7;
+	resize: vertical;
+	box-shadow:0 0 0 4px #EEF5F7;
+	margin: 5px 0;
+}
+.formulario input[type='text']:hover, .formulario input[type='password']:hover, .formulario textarea:hover,.formulario select:hover{
+	padding: 7px 6px;
+	width: 250px;
+	border: 1px solid #0174DF;
+	resize: vertical;
+	box-shadow:0 0 0 4px #EEF5F7;
+	margin: 5px 0;
+}
+.formulario input[type='submit']{
+	border: 1px solid #CED5D7;
+	padding: 8px 16px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+.formulario input[type='submit']:hover{
+	background: #0174DF; 
+	color: white;
+}
+.errores{
+    background-color: #BC1010;
+    border-radius: 4px 4px 4px 4px;
+    color: white;
+    font-weight: bold;
+    margin-left: 16px;
+    margin-top: 6px;
+    padding: 6px 12px;
+    position: absolute;
+	box-shadow: 0px 0px 30px black;
+}
+.errores:before{
+    border-color: transparent #BC1010 transparent transparent;
+    border-style: solid;
+    border-width: 6px 8px;
+    content: "";
+    display: block;
+    height: 0;
+    left: -16px;
+    position: absolute;
+    top: 8px;
+    width: 0;
+}
+.carita{
+	position: absolute;
+	margin-top: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+/*
+## FORMULARIOS HTML, ERRORES PHP class="errores"
+###################################################################*/

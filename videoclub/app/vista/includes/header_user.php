@@ -25,6 +25,8 @@
   <title><?php echo $tituloPagina; ?></title>
   <link rel="stylesheet" type="text/css" href="<?php echo PAGINA; ?>web/css/estilo.css" />
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo PAGINA; ?>web/img/plantilla/favicon.ico">
+  <script src="<?php echo PAGINA?>web/js/main.js"></script>
+  <script src="<?php echo PAGINA?>web/js/jquery.min.js"></script>
 </head>
 <body>
   <div id="container">

@@ -5,17 +5,21 @@
   <title><?php echo $tituloPagina; ?></title>
   <link rel="stylesheet" type="text/css" href="<?php echo PAGINA; ?>web/css/estilo.css" />
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo PAGINA; ?>web/img/plantilla/favicon.ico">
+  <script src="<?php echo PAGINA?>web/js/main.js"></script>
+  <script src="<?php echo PAGINA?>web/js/jquery.min.js"></script>
 </head>
 <body>
   <div id="container">
     <div id="login">
-      <form action="<?php echo PAGINA; ?>app/pages/comprobarLogin.php" method="post">
-        Usuario: <input name="usuari" type="text" value="ed">
-        Contraseña: <input name="contrasenya" type="password" value="ed">
+      <!-- FORMULARIO LOGIN -->
+      <form action="<?php echo PAGINA; ?>app/controlador/comprobarLogin.php" method="post">
+        Usuario: <input name="usuari" type="text" value="gabriel">
+        Contraseña: <input name="contrasenya" type="password" value="gabriel">
         <input type="checkbox" name="recordar" value="seleccionado">Recordar
         <input type="submit" name="login" value="Iniciar Sesion">
         <a href="<?php echo PAGINA; ?>index.php/registro"><input type="button" value="Registrate"></a>
       </form>
+      <!-- FIN FORMULARIO LOGIN -->
     </div>
     <div id="nombre"> 
       <span id="tituloPagina">Peliculas</span> <br />
